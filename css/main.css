@@ -1,0 +1,31 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  color: rgb(194, 194, 194);
+  background-color: rgb(64, 64, 64);
+  font-size: 100%;
+  font-family: 'Segoe UI', verdana, helvetica, "Trebuchet MS", sans-serif;
+}
+
+h4 {
+  padding: 0;
+  margin-left: 1rem;
+}
+
+#layout {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+
+
+

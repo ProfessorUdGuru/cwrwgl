@@ -1,0 +1,27 @@
+{
+  "name": "cwrwgl",
+  "version": "0.0.0",
+  "description": "A simple code editor.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorUdGuru/cwrwgl.git"
+  },
+  "keywords": [
+    "code",
+    "editor",
+    "simple"
+  ],
+  "author": "Scott Robertson",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/ProfessorUdGuru/cwrwgl/issues"
+  },
+  "homepage": "https://github.com/ProfessorUdGuru/cwrwgl#readme",
+  "devDependencies": {
+    "electron": "^13.1.4"
+  }
+}

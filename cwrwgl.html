@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <title>CWRWGL SIMPLE CODE EDITOR</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/titleBar.css">
+    <link rel="stylesheet" href="css/explorer.css">
+    <link rel="stylesheet" href="css/editor.css">
+  </head>
+  <body>    
+    <div id="layout">
+
+      <div id="titleBar">
+        <div id="titles">          
+          <img src="icons/code_in_peace_logo.png" width="27" alt="code in peace slogan logo">
+          <div class="title">CWRWGL SIMPLE CODE EDITOR</div>
+        </div>
+        <div class="borderButtons">
+          <button id="minimizeBtn" class="topBtn minimizeBtn" title="Minimize"></button>
+          <button id="maxResBtn" class="topBtn maximizeBtn" title="Maximize"></button>
+          <button id="closeBtn" class="topBtn closeBtn" title="Close"></button>
+        </div>
+      </div>
+
+      <nav id="menubar">          
+          <ul>
+            <li><a id="showHideMenus" class="toggleButton"></a></li>
+            <li><a href="#">File</a></li>
+            <li><a href="#">Edit</a></li>
+            <li><a href="#">Languages</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Macros</a></li>
+            <li><a href="#">Run</a></li>
+            <li><a href="#">Window</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+      </nav>
+
+      <nav id="explorer">
+        <h4>Projects</h4>
+        <ul id="ul">
+          <li><span class="dir">Cwrwgl</span>
+            <ul class="nested">
+              
+              <li><span class="dir">css</span>
+                <ul class="nested">
+            
+              <li><label class="file" for="f1">editor.css</label></li>
+                  <input type="file" id="f1">
+
+                  <li class="file">titleBar.css</li>
+                </ul>          
+              </li>
+
+              <li><span class="dir">etc</span>
+                <ul class="nested">
+                  <li class="file">how_to_make_macro_recorder.txt</li>
+                  <li class="file">reserved_words.txt</li>
+                </ul>          
+              </li>
+              
+              <li><span class="dir">icons</span>
+                <ul class="nested">
+                  <li class="file">fedup_logo.png</li>
+                  <li class="file">icon_close.png</li>
+                </ul>          
+              </li>
+              
+              <li><span class="dir">js</span>
+                <ul class="nested">
+                  <li class="file">mainView.js</li>
+                  <li class="file">titleBar.js</li>
+                </ul>          
+              </li>
+              
+              <li><span class="dir">model</span>
+                <ul class="nested">
+              
+                  <li><span class="dir">css</span>
+                    <ul class="nested">
+                      <li class="file">explorer_file_tree.css</li>
+                      <li class="file">line_numbered_text.css</li>
+                    </ul>          
+                  </li>
+
+                  <li><span class="dir">js</span>
+                    <ul class="nested">
+                      <li class="file">explorer_file_tree.js</li>
+                    </ul>          
+                  </li>
+
+                  <li class="file">explorer_file_tree.html</li>
+                  <li class="file">line_numbered_text.html</li>
+                </ul>          
+              </li>
+              <li><span class="dir">node_modules</span></li> 
+              <li class="file">about.html</li>
+              <li class="file">feduppitor.html</li>
+              <li class="file">main.js</li>
+              <li class="file">package.json</li>
+              <li class="file">package-lock.json</li>   
+            </ul>
+          </li>
+          
+          <li><span class="dir">Treebard</span>
+            <ul class="nested">
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li><span class="dir">Item 3</span>
+                <ul class="nested">
+                  <li>Item 3.1</li>
+                  <li>Item 3.2</li>
+                  <li><span class="dir">Item 3.3</span>
+                    <ul class="nested">
+                      <li>Item 3.3.1</li>
+                      <li>Item 3.3.2</li>
+                      <li>Item 3.3.3</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          
+          <li><span class="dir">Treebard GPS</span>
+            <ul class="nested">
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li><span class="dir">Item 3</span>
+                <ul class="nested">
+                  <li>Item 3.1</li>
+                  <li>Item 3.2</li>
+                  <li><span class="dir">Item 3.3</span>
+                    <ul class="nested">
+                      <li>Item 3.3.1</li>
+                      <li>Item 3.3.2</li>
+                      <li>Item 3.3.3</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          
+          <li><span class="dir">Toykinter</span>
+            <ul class="nested">
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li><span class="dir">Item 3</span>
+                <ul class="nested">
+                  <li>Item 3.1</li>
+                  <li>Item 3.2</li>
+                  <li><span class="dir">Item 3.3</span>
+                    <ul class="nested">
+                      <li>Item 3.3.1</li>
+                      <li>Item 3.3.2</li>
+                      <li>Item 3.3.3</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>             
+
+      <main id="editor">
+        <div id="editable" contenteditable="true">
+          <div id="lines">Code in peace.</div> 
+        </div> 
+        <div id="numCol"></div>
+        <div id="col80"></div>       
+      </main>
+
+    </div> 
+    <script src="js/mainView.js"></script>
+    <script src="js/titleBar.js"></script>
+    <script src="js/explorer.js"></script>
+  </body>
+</html>

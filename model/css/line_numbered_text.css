@@ -1,0 +1,67 @@
+body {
+  background-color: rgb(20, 36, 36);
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#editor-wrapper {
+  /* background-color: brown; */
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  counter-reset: line;
+}
+
+#editor{
+  /* background-color: purple; */
+    margin: 0;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    list-style: none;
+
+    height: 100%;
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    font-size: 1.2rem;
+    line-height: 1.5em;
+    color:rgba(255, 255, 255, 0.8);
+    resize: none;
+    font-family: monospace;
+}
+
+#editor div {
+  /* background-color: magenta; */
+    padding-left: 6ch;
+    position: relative;
+    caret-color: white;
+}
+
+#editor > div::before {
+/* background-color: blue; */
+  background-color: rgba(10, 255, 225, 0.3);
+  color:rgba(255, 255, 255, 0.6);
+  counter-increment: line;
+  content: counter(line);
+  font-size: 1em;
+  user-select: none;
+  width: 5ch;  /* this puts space between the numbers and the text */
+  text-align: right;
+  position: absolute;
+  left: 0;
+}
+
+.spacer {
+  /* background-color: orange; */
+  background-color: rgba(10, 255, 225, 0.3);
+  position: absolute;
+  top: 0;
+  left: 5ch;
+  width: 12px;
+  height: 100%;
+}

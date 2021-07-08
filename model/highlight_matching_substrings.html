@@ -1,0 +1,56 @@
+<!-- https://stackoverflow.com/questions/5886858/full-text-search-in-html-ignoring-tags/5887719#5887719 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Highlight Matching Words</title>
+</head>
+<body>
+
+  <div id="content">
+    <p>Here is some searchable text with some lápices in it, and more lápices, 
+      and some <b>for<i>mat</i>t</b>ing  and a URL
+      <a href="https://www.google.com">Google Search Engine</a> as a link.
+      Notice however that this searches occurrences of a substring, not whole
+      words, so if you search for "form" then part of "formatting" will highlight
+      also, which is not wanted in a code editor. It's also not case sensitive.
+      HOWEVER this could work as part of a find/replace dialog, depending on the
+      options checked by the user.
+    </p>
+  </div> 
+
+  
+
+  <input type="text" id="search">
+  <input type="hidden" id="hid_search">
+  <input type="button" id="button" onmousedown="doSearch(document.getElementById('search').value)" value="Find">
+
+<script>
+  function doSearch(text, color="yellow") {
+      if (color!="transparent") {
+        doSearch(document.getElementById('hid_search').value,"transparent"); 
+        document.getElementById('hid_search').value = text; 
+        }
+      if (window.find && window.getSelection) {
+          document.designMode = "on";
+          var sel = window.getSelection();
+          sel.collapse(document.body, 0);
+          
+          while (window.find(text)) {
+              document.execCommand("HiliteColor", false, color);
+              sel.collapseToEnd();
+          }
+          document.designMode = "off";
+      } else if (document.body.createTextRange) {
+          var textRange = document.body.createTextRange();
+          while (textRange.findText(text)) {
+              textRange.execCommand("BackColor", false, color);
+              textRange.collapse(false);
+          }
+      }
+  }
+</script>
+  
+</body>
+</html>

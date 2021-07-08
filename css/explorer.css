@@ -1,0 +1,56 @@
+/* Goal: use margin, font-size, and padding so indented filenames line up 
+   exactly right under the text that follows the arrow in dir lines. */
+
+#explorer {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  width: 18rem;
+  padding: 0 1rem;
+  height: calc(100% - 4rem);
+  overflow-y: scroll;
+  counter-reset: line;
+}
+
+ul{
+  list-style: none;
+  line-height: 1.5;
+  padding-left: 1rem; 
+}
+
+.dir{
+  cursor: pointer;
+  user-select: none;
+}
+
+.dir::before {
+  content: "\2B9E"; /* right arrow */
+  color:rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  margin-right: 3px; /* space btwn arrow & heading */
+}
+
+.dir-down::before {
+  content: "\2B9F"; /* down arrow */
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.file {
+  cursor: pointer;
+  padding-left: 1px;
+}
+
+.file:hover {
+  color: white;
+}
+
+input[type="file"] {
+  display: none;
+}

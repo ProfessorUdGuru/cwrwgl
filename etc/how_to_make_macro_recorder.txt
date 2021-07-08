@@ -1,0 +1,32 @@
+https://social.microsoft.com/Forums/partner/zh-CN/defeef01-d67f-4468-aaa7-22cd264dee6e/how-to-create-a-macro-recorder-in-visual-basic?forum=vbgeneral
+
+How to create a macro recorder that will save each and every keystroke, like the one in MS WORD, and save the saved keystroke in a database, and it will allow user to assign it a hotkey to paste the saved data anywhere in e.g. text editor, emails, etc!
+
+Question
+登录进行投票
+2
+登录进行投票
+
+Hi,
+
+you need a concept like a script-engine or a "undo-from-the-beginning"-like set of operations.
+
+Create an Interface or a abstract base class defining the Action/Undo BaseType and the needed Methods (like creating an instance, setting properties/values, executing the action and cleanup).
+
+Create a set of classes that will hold the data for *each* action. Create a list that holds all intstances of these classes. 
+
+When interacting with the main-program in any relevant way, add the data from this action to the list, ie. a new instance of a class of your set of classes holding the data.
+
+Create a pointer-variable that points to the current position in that list. Increment it on each action. decrement it on each undo-in-the-main-program
+
+create a (set of) class/es that will do the single actions with the provided data from the lists entries, so every action can be done by the data you collect.
+
+To run the macro, start at point 0 in the list and do every action up to the current pointer's position.
+
+To paste the data to text, override ToString() in your actions, to save the macro to reload into your program, do binary serialization.
+
+Use OOP-concepts deeply here. Think of using Patterns here.
+
+Regards,
+
+  Thorsten

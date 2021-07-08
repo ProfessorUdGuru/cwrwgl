@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Highlight Matching Words on Click</title>
+  <style>
+    body {
+      font-size: 20px;
+    }
+    .highlight {
+      background-color: yellow;
+      }
+    .featured-word {
+        color: red;
+        font-weight: bold;
+      }
+  </style>
+</head>
+<body>
+
+  <p>Add a function to reverse any matching-word-highlightings on single click anywhere.</p>
+
+  <h3>Double click a word in this area...</h3>
+  <ul id="keywords">
+      <li><span>AC</span>  <span>Motors<span></li>
+      <li><span>Adjustable</span>  <span>Speed</span>  <span>Motor</span>  
+        <span>Drives<span></li>
+          
+      <li><span>ac</span>  <span>motors<span></li>
+        <li><span>Adjustable</span>  <span>Speed</span>  <span>motor</span>  
+          <span>drives<span></li>
+  </ul>
+
+  <h3>...to highlight matching words in this area.</h3>
+  <p><i>(without disturbing words that are already highlighted)</i></p>
+  <table style="font-size: 0.9em;">
+    <tr>
+      <td><a href="http://www.columbusfan.com/" target="_blank">URL</a></td>
+      <td class="context">AC Motors
+        Adjustable Speed motor Drives AC motors
+        Adjustable Speed Motor drives ac Motors
+        Adjustable Speed Motor Drives</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.columbusfan.com/" target="_blank">URL</a></td>
+      <td class="context">Columbus Fan & Machine corp is a
+         <span class="featured-word">manufacturer</span> of top quality Cooling 
+         Blowers and Filters along with other related motor accessories for all 
+         makes of AC & DC Motors</td>
+          </tr>
+          </table>
+
+  <script>
+    function jqueryRemoved () {
+        let context  = document.querySelectorAll('.context')
+        let keywords = document.querySelector('#keywords')
+
+        keywords.addEventListener('dblclick', function (event) {
+            let target = event.target;
+            for(let i = 0; i < context.length; i++) {
+                let item = context[i],
+                  text = item.textContent,
+                  featuredWords = item.querySelectorAll('.featured-word'),
+                  words = Array.prototype.slice.call(featuredWords, 0).map(function(node) {
+                    return node.textContent;  
+                  }),
+
+                  // i in 2nd param is for case-insensitive? It seems so, but
+                  //  why doesn't removing the g make it not global?
+                  regex = new RegExp('\\b(' + target.textContent + ')\\b', 'g');
+                  // regex = new RegExp('\\b(' + target.textContent + ')\\b', 'ig');
+
+                
+                text = text.replace(regex, '<span class="highlight">$1</span>');
+                // put the bolded words back
+          words.forEach(function(word) {
+                  text = text.replace(word, '<span class="featured-word">'+word+'</span>'); 
+                });
+                
+                item.innerHTML = text;
+            }
+        }, false);
+    };
+    jqueryRemoved();
+  </script>        
+  
+</body>
+</html>

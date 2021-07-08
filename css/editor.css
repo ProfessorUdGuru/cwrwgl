@@ -1,0 +1,67 @@
+#editor {
+  margin: 4rem 0 0 0;
+  overflow-y: scroll;
+  position: fixed;
+  left: 20rem;
+  top: 0;
+  height: calc(100% - 4rem);
+  width: calc(100% - 20rem);
+  font-family: courier, monospace;
+  font-size: 1rem;
+  resize: none;
+}
+
+#editable{
+  border: 0;
+  padding: 0;
+  outline: 0;
+  list-style: none;
+
+  font-size: 1rem;
+  line-height: 1.5em;
+  color:rgba(255, 255, 255, 1); /* code text */
+  resize: none;
+  
+  word-wrap: break-word;
+  word-break: break-all;
+  color:rgba(255, 255, 255, 0.8);
+}
+
+#editable div {
+  padding-left: 7ch; /* works with `width: 6ch` below */
+  position: relative;  
+  caret-color: white;
+}
+
+#editable > div::before {
+  color:rgba(255, 255, 255, 0.6); /* line numbers */
+  counter-increment: line;
+  content: counter(line);
+  
+  user-select: none;
+  width: 6ch; /* puts space between the numbers and the text */
+  text-align: right;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+#numCol {
+  position: fixed;
+  top: 4rem;
+  left: 20rem; 
+  width: 7ch;
+  height: calc(100% - 4rem);
+  background-color: rgba(144, 144, 144, 0.25);
+}
+
+#col80 {
+  position: fixed;
+  top: 4rem;
+  left: calc(20rem + 87ch);
+  width: 1px;
+  height: calc(100% - 4rem);
+  background-color: rgba(255, 255, 255, 0.1)
+}
+

@@ -1,0 +1,43 @@
+* {  
+  color: rgba(255, 255, 255, .85);
+  font-size: 14px;
+}
+
+body {
+  background-color: rgb(25, 25, 25);
+}
+
+/* div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+#editor{
+  /* background-color: purple; */
+  /* https://stackoverflow.com/questions/19038070/html-newline-char-in-div-content-editable/19038104 */
+    /* white-space: pre; */ /* preserves line breaks and indentation but doesn't wrap*/
+    /* white-space: pre-line; */ /* preserves line breaks and wraps but indentation is lost */
+    white-space: pre-wrap; /* preserves line breaks & indentation, and wraps */
+    margin: 0;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    list-style: none;
+
+    height: 100%;
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    font-size: 1.2rem;
+    line-height: 1.5em;
+    resize: none;
+    font-family: monospace;
+}
+/* 
+textarea {
+  background-color: rgb(45, 45, 45);
+  margin-top: 15px;
+  width: 50%;
+} */

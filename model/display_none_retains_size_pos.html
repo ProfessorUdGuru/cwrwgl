@@ -1,0 +1,92 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Does Display-None Retain Window Size & Position</title>
+  <style>
+    #recallHilited {
+      display: block;
+    }
+    #recallCursor {
+      display: block;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <h1>How to retain cursor position in hidden divs so that <br>when they are re-displayed,
+    the cursor position or highlighting is retained.
+  </h1>
+
+  <h3>This is regarding `display: none` and that's what I mean below whenever
+    I say a div is "hidden". I didn't look into what `visibility: hidden` does
+    in this regard.
+  </h3>
+  <div id="recallHilited">
+    Because `display:none` retains info about what it's hiding, you can highlight
+    some of this text, hide the div, then show it again, and the highlighting
+    will be preserved.<br>This works automatically without the `focus()` method. 
+    In this example, if the `focus()` method is used in the other div to retain 
+    its cursor position while it's hidden, <br>data won't be retained in this div
+    since it will lose focus. So to see this one work, comment the `focus()`
+    calls in the other one.
+  </div>
+  <hr>
+  <div id="recallCursor" contenteditable>
+    Similarly, in this editable div, you can place the cursor or caret anywhere
+    in the text, hide the div, show it again, and the placement of the cursor
+    will be preserved. <br>Unlike the previous (non-editable) div, this won't retain
+    its cursor position while hidden unless (1) the `focus()` method is used , or
+    (2) text is highlighted in the div before hiding. <br>If text is highlighted, the
+    `focus()` call is not needed here either.
+  </div>
+  <hr>
+  <div>
+    Summary: either an editable or a non-editable div will retain highlighting
+    while display is set to "none" if nothing steals focus from it while it's 
+    hidden. Ordinary divs don't take focus unless <br>they contain highlighted text,
+    so they don't retain cursor position information while hidden. But editable
+    divs can be made to retain cursor position while hidden, without highlighting,
+    <br>if focus() is used so that the editable div doesn't lose focus while hidden.
+  </div>
+
+  <button id="toggleButt">
+    toggle
+  </button>
+
+  <script>
+    const toggleButt = document.querySelector("#toggleButt")
+    let hiliteSeen = true
+    let cursorSeen = true
+    function toggle() {
+       
+      const recallHilited = document.querySelector("#recallHilited")       
+      const recallCursor = document.querySelector("#recallCursor")
+      if (hiliteSeen === false) {
+        recallHilited.style.display = "block"
+        hiliteSeen = true
+      } else {
+        recallHilited.style.display = "none"
+        hiliteSeen = false
+      }        
+      
+      if (cursorSeen === false) {
+        recallCursor.style.display = "block"
+        recallCursor.focus()
+        cursorSeen = true
+      } else {
+        recallCursor.style.display = "none"
+        recallCursor.focus()
+        cursorSeen = false
+      }        
+    }
+    toggleButt.addEventListener("click", toggle)
+
+  </script>
+  
+</body>
+</html>

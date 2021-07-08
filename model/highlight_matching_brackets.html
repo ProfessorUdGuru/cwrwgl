@@ -1,0 +1,76 @@
+<!-- https://stackoverflow.com/questions/15717436/js-regex-to-match-everything-inside-braces-including-nested-braces-i-want/27088184#27088184 -->
+<!-- It also knows to ignore brackets in strings and comments (single-line and multi-line) -->
+<!-- https://stackoverflow.com/questions/524548/regular-expression-to-detect-semi-colon-terminated-c-for-while-loops/524624#524624 -->
+
+
+<!-- You could write a little, very simple routine that does it, without using a regular expression:
+
+    Set a position counter pos so that is points to just before the opening bracket after your for or while.
+    Set an open brackets counter openBr to 0.
+    Now keep incrementing pos, reading the characters at the respective positions, and increment openBr when you see an opening bracket, and decrement it when you see a closing bracket. That will increment it once at the beginning, for the first opening bracket in "for (", increment and decrement some more for some brackets in between, and set it back to 0 when your for bracket closes.
+    So, stop when openBr is 0 again.
+
+The stopping positon is your closing bracket of for(...). Now you can check if there is a semicolon following or not. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Highlight Matching Brackets</title>
+</head>
+<body>
+
+  <script>
+    var block = /* code block */
+    startIndex = /* index of first bracket */
+    currPos = startIndex,
+    openBrackets = 0,
+    stillSearching = true,
+    waitForChar = false;
+
+    while (stillSearching && currPos <= block.length) {
+      var currChar = block.charAt(currPos);
+
+      if (!waitForChar) {
+        switch (currChar) {
+          case '{':
+            openBrackets++; 
+            break;
+          case '}':
+            openBrackets--;
+            break;
+          case '"':
+          case "'":
+            waitForChar = currChar;
+            break;
+          case '/':
+            var nextChar = block.charAt(currPos + 1);
+            if (nextChar === '/') {
+              waitForChar = '\n';
+            } else if (nextChar === '*') {
+              waitForChar = '*/';
+            }
+        }
+      } else {
+        if (currChar === waitForChar) {
+          if (waitForChar === '"' || waitForChar === "'") {
+            block.charAt(currPos - 1) !== '\\' && (waitForChar = false);
+          } else {
+            waitForChar = false;
+          }
+        } else if (currChar === '*') {
+          block.charAt(currPos + 1) === '/' && (waitForChar = false);
+        }
+      }
+
+      currPos++ 
+      if (openBrackets === 0) { stillSearching = false; } 
+    }
+
+    console.log(block.substring(startIndex , currPos)); // contents of the outermost brackets incl. everything inside
+
+  </script>
+  
+</body>
+</html>

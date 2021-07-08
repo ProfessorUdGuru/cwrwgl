@@ -6,12 +6,13 @@
 
 * This is a straight code editor, like Notepad++, not a live editor like Codepen. I want an editor that's as far from being an IDE as you can get without falling off the edge of the earth.
 
-* If you can't guess (from the Official Slogan, "Code in Peace") what my philosophy is, then here's one more hint: the original name for the project was "Feduppitor". I still like that name but I'm trying to show some restraint. 
+* If you can't guess (from the Official Slogan, "Code in Peace") what my philosophy is, then here's one more hint: the original name for the project was "Feduppitor". I still like that name but I'm trying to show some restraint.\
 
 <p align="center">
   <img src="icons/fedup_logo.png" width="300" height="300"/>
 </p>
-* In Atom and VSCode I turn most features off. I want very little highlighting, no suggestions, no autocomplete. The few autocomplete features I haven't turned off aren't important to me, like the addition of a closing bracket in a pair, which wastes my time as often as it saves me time. Sometimes it turns out that, in order to turn one feature on or off, other features piggyback along unwelcome. (Example: I found a feature I could import or turn on which would highlight all occurrences of a highlighted word. Now when my cursor is next to a word, that word auto-highlights. Which is horrific.) Or a feature exists but I don't like the way it's accomplished. For example, in VSCode, if you want the matching brackets highlighted, you get ugly rectangles drawn around them instead of a simple change of the character's color. I find myself staring at the rectangle trying to see what's inside of it, when all I wanted was two yellow brackets. There's so much kandy-kolored krap in VSCode that I feel like a senile old fart lost at Disneyland.
+
+* In Atom and VSCode I turn most features off. I want very little highlighting, no suggestions, no autocomplete. The few autocomplete features I haven't turned off aren't important to me, like the addition of a closing bracket in a pair, which wastes my time as often as it saves me time. Sometimes it turns out that, in order to turn one feature on or off, other features piggyback along unwelcome. (Example: I found a feature I could import or turn on which would highlight all occurrences of a highlighted word. Now when my cursor is next to a word, that word auto-highlights. Which is horrific.) Or a feature exists but I don't like the way it's accomplished. For example, in VSCode, if you want the matching brackets highlighted, you get ugly rectangles drawn around them instead of a simple change of the character's color. I find myself staring at the rectangle trying to see what's inside of it, when all I wanted was two yellow brackets. There's so much kandy-kolored krap in VSCode that I feel like a senile old fart lost at Disneyland.\
 
 <p align="center">
   <img src="images/no_more_kandy.png" width="200" height="200"/>
@@ -38,7 +39,7 @@
   1. I only use a few languages and I would make it dead simple to add another one, instead of using a plug-in system to do it. Since complex syntax highlighting doesn't interest me, there's no reason why the editor should come pre-loaded with a bunch of languages. Just add a list of reserved words, and add a string to an array? I haven't tried it yet, we'll see how it works out. 
   1. In general all the code for the app should be editable by a beginner (me).
   1. I also wanted to test a design idea for an editor GUI whose file explorer sidebar would not push the code over when it (the explorer) is opened. In VSCode, if I have a file open with the window sized to 80+ characters in width so I can see all my code, when I open the explorer, the code is pushed over and I can't read the right half of the code until I close the explorer or manually resize the window. I think it would be worth looking into dynamically adding the explorer to the left edge of the window instead, so the code doesn't move and the editor stays the same size when the explorer opens. I know tabbed windows aren't supposed to change sizes unless manually resized, but this might be an exception. The whole point is to NOT change the size of the editor just to see the file explorer.
-  1. The word "cwrwgl" refers to a very small and simple one-man boat, like a lily pad for humans. The fisherman carries it home on his back. The anglified version is "coracle". The original Welsh version is pronounced "koo-ROO-gl".
+  1. The word "cwrwgl" refers to a very small and simple one-man boat, like a lily pad for humans. The fisherman carries it home on his back. The anglified version is "coracle". The original Welsh version is pronounced "koo-ROO-gl".\
 
 <p align="center">  
   <img src="images/1024px-Coracles_River_Teifi.jpg" width="300" height="271" />
@@ -58,7 +59,7 @@
 
 ## To Test the Code
 
-* Use the quick start tutorial at electronjs.org. Electron is not a framework, it's not like learning another language. It just hooks the back-end and the front-end together and you carry on with normal HTML, CSS and JavaScript. It's very easy and the dependencies you have to install (git so you can use the bash terminal and NodeJS so Electron can communicate with your system) are simple to install. There are plenty of tutorials online for using Electron. 
+* Use the quick start tutorial at electronjs.org. Electron is not a framework, it's not like learning another language. It just hooks the back-end and the front-end together and you carry on with normal HTML, CSS and JavaScript. It's very easy and the dependencies you have to install (git so you can use the bash terminal and NodeJS so Electron can communicate with your system) are simple to install. There are plenty of tutorials online for using Electron. In fact, VSCode and Atom are both built in Electron, as well as Slack, Netflix, and other well-known apps. Not to mention that Electron was literally created (by Github) in order to create Atom. As a novice, I'm not qualified to have an opinion, but in my personal experience, Electron has made desktop-app creation accessible to neophytes similar to the way that Python and Tkinter do, kinda like *batteries-included*. Not quite as easy as Python/Tkinter but a lot more beautiful, capable and performant.
 
 ## Do List
 
